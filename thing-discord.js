@@ -1,3 +1,6 @@
+
+#!/usr/bin/env node
+
 require("dotenv").config();
 const Discord = require("discord.js");
 const { Client, Intents } = require("discord.js");

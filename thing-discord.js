@@ -1,4 +1,3 @@
-
 #!/usr/bin/env node
 
 require("dotenv").config();
@@ -32,6 +31,7 @@ client.on('disconnect', message => {
 });
 
 bot.on("message", (discordMessage) => {
+
   // Is this a message from a bot?
   if (discordMessage.author.bot) return;
 
@@ -39,6 +39,7 @@ bot.on("message", (discordMessage) => {
   var from = discordMessage.channelId;
   var to = discordMessage.author.id;
   var subject = discordMessage.content;
+  var agent_input = discordMessage;
   //console.log(message);
   console.log('Heard, "' + subject + '"');
 
@@ -83,7 +84,7 @@ bot.on("message", (discordMessage) => {
     return;
   }
 
-  var arr = { from: from, to: to, subject: subject };
+  var arr = { from: from, to: to, subject: subject, agent_input: agent_input };
   var datagram = JSON.stringify(arr);
 
   try {
